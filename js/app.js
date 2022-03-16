@@ -1,29 +1,35 @@
-// Your calculator is going to contain functions for all of the basic math operators you typically find on simple calculators, so start by creating functions for the following items and testing them in your browser’s console.
-// add (Done)
-// subtract(Done)
-// multiply (Done)
-// divide
-
-const add = (a, b) => {
-    // return a + b;
-    console.log(a + b)
+function add(...args){
+    let sum = 0;
+    args.forEach(arg =>{
+        sum += arg
+    })
+    return sum;
 }
-add(40,1)
 
-const subtract = (a, b) =>{
-    // return a - b;
-    console.log(a - b)
+function subtract(...args){
+    let difference = 0;
+    args.forEach(arg =>{
+        difference -= arg
+    })
+    return difference;
 }
-subtract(100, 50)
 
-const multiply = (a, b) => {
-    // return a * b;
-    console.log( a * b)
+function multiply(...args){
+    return args.reduce((total, current) =>{
+       return total *= current;
+    }, 1)
 }
-multiply(25,2)
 
-const divide = (a, b) => {
-    // return a / b;
-    console.log(a / b)
+function divide(...args){
+    return args.reduce((total, current) => {
+        return total /= current;
+    }, 1)
 }
-divide(1000,2)
+
+
+// Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+
+// Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key.
+// Do not worry about wiring up the JS just yet.
+// There should also be a display for the calculator, go ahead and fill it with some dummy numbers so you can get it looking right.
+// Add a “clear” button.
