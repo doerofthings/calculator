@@ -7,12 +7,11 @@ function add(...args){
 }
 
 function subtract(...args){
-    let difference = 0;
-    args.forEach(arg =>{
-        difference -= arg
+    return args.reduce((total,current) => {
+        return total -= current;
     })
-    return difference;
 }
+
 
 function multiply(...args){
     return args.reduce((total, current) =>{
@@ -20,24 +19,23 @@ function multiply(...args){
     }, 1)
 }
 
+
 function divide(...args){
     return args.reduce((total, current) => {
         return total /= current;
-    }, 1)
+    })
 }
+
 
 
 // Create a new function operate 
 // that takes an operator and 2 numbers
 //  and then calls one of the above functions on the numbers.
 
-function operate(){
-   return `${divide(12,2)}`;
+
+
+
+function operate(...args){
+   return `${subtract(...args)}`;
 }
-console.log(operate())
-
-
-
-
-
-
+console.log(operate(10,5,2))
